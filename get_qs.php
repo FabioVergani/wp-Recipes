@@ -1,18 +1,18 @@
+//fabiovergani
 function get_qs(){
+ $o=&$_SERVER;
  $x='http';
- if($_SERVER['HTTPS'] === 'on'){$x .= 's';};
- $x .= '://';
- $p=$_SERVER['SERVER_PORT'];
+ if($o['HTTPS'] === 'on'){$x .= 's';};
+ $x .= '://'.$o['SERVER_NAME'];
  if($p !== '80'){
-  $n=$_SERVER['SERVER_NAME'];
-  $x .= $n.':'.$p.$_SERVER['REQUEST_URI'];
+  $x .= ':'.$o['SERVER_PORT'].$o['REQUEST_URI'];
  }else{
-  $x .= $n.$_SERVER['REQUEST_URI'];
+  $x .= $o['REQUEST_URI'];
  };
- $qs=explode('&',explode('?',$x)[1]);
+ $o=explode('&',explode('?',$x)[1]);
  $x=[];
- foreach($qs as $nv){
-	$m=explode('=',$nv);
+ foreach($o as $p){
+	$m=explode('=',$p);
 	$x[$m[0]]=$m[1];
  };
  return $x;
