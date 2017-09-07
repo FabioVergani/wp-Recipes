@@ -1,0 +1,5 @@
+//fabiovergani
+	 add_filter('page_row_actions',function($m,$o){//$actions,$page_object
+	  $m['view']=preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1href="$2"$3>$4</a> | <a href="$2?adminbar=no" target="_blank">Test</a>',$m['view']);
+	  return $m;
+	 });
