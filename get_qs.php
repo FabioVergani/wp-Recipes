@@ -17,5 +17,4 @@ function get_qs(){
  };
  return $x;
 }
-//
-print_r(get_qs());
+//test: print_r(get_qs());
