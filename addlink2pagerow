@@ -3,3 +3,10 @@
 	  $m['view']=preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1href="$2"$3>$4</a> | <a href="$2?adminbar=no" target="_blank">Test</a>',$m['view']);
 	  return $m;
 	 });
+	 
+	 
+//permalink under wordpress post title
+add_filter('get_sample_permalink_html',function($x){
+ return preg_replace('/<a(.*)href="([^"]*)"(.*)>(.*)<\/a>/','<a$1href="$2"$3>$4</a> <a class="button" href="$2?adminbar=no" target="_blank">Test</a>',$x);
+});
+
