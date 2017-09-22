@@ -1,3 +1,16 @@
+//#SiteBlogIdOf exist?
+if(function_exists('SiteBlogIdOf')){
+	//exist!
+}else{
+	if(class_exists('WP_Site')){
+	   function SiteBlogIdOf($o){return $o->blog_id;}
+	}else{
+	   function SiteBlogIdOf($o){return $o['blog_id'];}
+	};
+};
+
+
+
 //#getSites exist?
 if(function_exists('getSites')){
 	//exist!
