@@ -1,0 +1,18 @@
+    // Print all loaded Styles (CSS)
+    global $wp_styles;
+	$result = [];
+    foreach( $wp_styles->queue as $style ) :
+      //$result['styles'][] =  $wp_styles->registered[$style]->src . ";";
+	   $result['styles'][] =  $style;
+    endforeach;
+
+	echo '<!-- zzz';
+	 var_dump( $result ); 
+	echo '-->';
+  
+  
+  	add_action('admin_enqueue_scripts',function(){
+		$i='zzz';
+		wp_register_style($i,plugins_url('admin.css',__FILE__),array('wp-auth-check'),'1.0.0');
+        wp_enqueue_style($i);	
+	});	
