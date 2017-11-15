@@ -1,0 +1,3 @@
+	add_action('post_type_labels_editorial',function($m){//labels
+		echo '<pre>'.print_r($m,true).'</pre>';
+	});
