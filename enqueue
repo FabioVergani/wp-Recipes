@@ -1,0 +1,24 @@
+			//$path2res=plugins_url('res',__FILE__); caso root
+			$path2res=dirname(plugins_url('',__FILE__)).'/res';
+
+			$enqueue=function($n,$e,$registered=false)use($path2res){
+				if($e!=='css'){
+					if($e!=='js'){
+						//wft?
+					}else{
+						$x=$n.'-js';
+						if($registered){
+							wp_enqueue_script($x);
+						}else{
+							wp_enqueue_script($x,$path2res.'/script/'.$n.'.js');
+						};
+					};
+				}else{
+					$x=$n.'-css';
+					if($registered){
+						wp_enqueue_style($x);
+					}else{
+						wp_enqueue_style($x.'-css',$path2res.'/style/'.$n.'.css');
+					};
+				};
+			};
